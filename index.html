@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAKO Tech — Gaming, Technology, AI & Tutorials</title>
+<meta name="description" content="BAKO Tech brings gaming news, technology, AI tools, Android apps, PC gaming, web development tutorials and practical tech guides.">
+<meta name="keywords" content="BAKO Tech, gaming news, technology, AI tools, Android games, PC gaming, HTML CSS JavaScript, tech tutorials">
+<meta name="author" content="BAKO Tech">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#6c63ff">
+<meta name="application-name" content="BAKO Tech">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BAKO Tech">
+<link rel="icon" type="image/svg+xml" href="assets/bako-icon.svg">
+<link rel="apple-touch-icon" href="assets/bako-icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="https://example.com/">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="BAKO Tech — Gaming, Technology, AI & Tutorials">
+<meta property="og:description" content="Gaming, technology, AI, Android, PC and practical development tutorials.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:site_name" content="BAKO Tech">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BAKO Tech — Gaming, Technology, AI & Tutorials">
+<meta name="twitter:description" content="Gaming, technology, AI, Android, PC and practical development tutorials.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80">
+
+<script type="application/ld+json" id="siteSchema">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"https://example.com/#website",
+      "url":"https://example.com/",
+      "name":"BAKO Tech",
+      "description":"Gaming, technology, AI and programming publication."
+    },
+    {
+      "@type":"Organization",
+      "@id":"https://example.com/#organization",
+      "name":"BAKO Tech",
+      "url":"https://example.com/",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=512&q=80"
+      }
+    },
+    {
+      "@type":"Blog",
+      "@id":"https://example.com/#blog",
+      "name":"BAKO Tech",
+      "url":"https://example.com/"
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#080b12;
+  --bg-soft:#0e131d;
+  --surface:#111722;
+  --surface-2:#171e2b;
+  --surface-3:#202938;
+  --text:#f4f7fb;
+  --muted:#9ba7b8;
+  --primary:#6c63ff;
+  --primary-2:#8d86ff;
+  --cyan:#27d7e8;
+  --green:#4ade80;
+  --danger:#fb7185;
+  --border:rgba(255,255,255,.09);
+  --shadow:0 18px 50px rgba(0,0,0,.28);
+  --radius:18px;
+  --radius-sm:12px;
+  --max:1180px;
+  --header:72px;
+  --transition:180ms ease;
+}
+
+[data-theme="light"]{
+  --bg:#f5f7fb;
+  --bg-soft:#edf1f7;
+  --surface:#ffffff;
+  --surface-2:#f1f4f8;
+  --surface-3:#e7ebf2;
+  --text:#101621;
+  --muted:#5e6979;
+  --border:rgba(16,22,33,.10);
+  --shadow:0 18px 50px rgba(32,45,70,.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  transition:background .25s,color .25s;
+}
+
+body.no-scroll{overflow:hidden}
+
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+
+.container{
+  width:min(var(--max),calc(100% - 32px));
+  margin:auto;
+}
+
+.section{
+  padding:78px 0;
+}
+
+.section-header{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:30px;
+}
+
+.section-title{
+  font-size:clamp(1.65rem,3vw,2.3rem);
+  line-height:1.15;
+  letter-spacing:-.04em;
+}
+
+.section-subtitle{
+  color:var(--muted);
+  margin-top:8px;
+  max-width:650px;
+}
+
+.topbar{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  font-size:.82rem;
+  color:var(--muted);
+}
+
+.topbar-inner{
+  min-height:34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.topbar strong{color:var(--text)}
+
+.header{
+  height:var(--header);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:color-mix(in srgb,var(--bg) 90%,transparent);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  font-size:1.25rem;
+  letter-spacing:-.04em;
+  white-space:nowrap;
+}
+
+.logo-mark{
+  width:37px;
+  height:37px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--cyan));
+  color:#fff;
+  box-shadow:0 8px 24px rgba(108,99,255,.28);
+  font-size:1rem;
+}
+
+.logo span{
+  background:linear-gradient(90deg,var(--text),var(--primary-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.nav-links a{
+  padding:9px 11px;
+  border-radius:9px;
+  color:var(--muted);
+  font-size:.9rem;
+  transition:var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--text);
+  background:var(--surface-2);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  transition:var(--transition);
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(108,99,255,.5);
+  color:var(--primary-2);
+}
+
+.menu-btn{display:none}
+
+.hero{
+  padding:55px 0 35px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.45fr .75fr;
+  gap:22px;
+}
+
+.hero-main{
+  min-height:500px;
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  background:#101522;
+  isolation:isolate;
+}
+
+.hero-main img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
+.hero-main::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(0deg,rgba(4,7,13,.96) 3%,rgba(4,7,13,.55) 50%,rgba(4,7,13,.05) 100%);
+}
+
+.hero-content{
+  height:100%;
+  min-height:500px;
+  padding:42px;
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+  max-width:800px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  gap:7px;
+  background:rgba(108,99,255,.16);
+  color:#b9b4ff;
+  border:1px solid rgba(108,99,255,.3);
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:.74rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,5vw,4.2rem);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  margin:17px 0 15px;
+  max-width:780px;
+}
+
+.hero p{
+  color:#d0d7e4;
+  max-width:650px;
+  font-size:1.02rem;
+}
+
+.meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.hero .meta{
+  margin:20px 0 25px;
+  color:#bdc6d4;
+}
+
+.meta span{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+
+.btn{
+  border:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:11px;
+  padding:11px 17px;
+  font-weight:800;
+  transition:var(--transition);
+}
+
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary),#5148e8);
+  box-shadow:0 10px 24px rgba(108,99,255,.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(108,99,255,.3);
+}
+
+.btn-secondary{
+  color:var(--text);
+  background:var(--surface-2);
+  border:1px solid var(--border);
+}
+
+.btn-secondary:hover{
+  border-color:rgba(108,99,255,.4);
+}
+
+.hero-side{
+  display:grid;
+  gap:22px;
+  grid-template-rows:1fr 1fr;
+}
+
+.hero-side-card{
+  position:relative;
+  overflow:hidden;
+  min-height:238px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+
+.hero-side-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+
+.hero-side-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(4,7,13,.94),rgba(4,7,13,.08));
+}
+
+.hero-side-content{
+  position:absolute;
+  z-index:2;
+  bottom:20px;
+  left:20px;
+  right:20px;
+}
+
+.hero-side-content h3{
+  margin-top:9px;
+  font-size:1.25rem;
+  line-height:1.2;
+  letter-spacing:-.025em;
+}
+
+.trending-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.trend-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:17px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:16px;
+  transition:var(--transition);
+}
+
+.trend-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(108,99,255,.35);
+}
+
+.trend-number{
+  font-size:1.7rem;
+  line-height:1;
+  font-weight:900;
+  color:var(--primary-2);
+}
+
+.trend-card h3{
+  font-size:.94rem;
+  line-height:1.3;
+}
+
+.trend-card small{
+  display:block;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.content-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 310px;
+  gap:28px;
+}
+
+.articles-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.article-card{
+  overflow:hidden;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  transition:var(--transition);
+}
+
+.article-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(108,99,255,.35);
+  box-shadow:var(--shadow);
+}
+
+.article-image{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  position:relative;
+}
+
+.article-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+
+.article-card:hover .article-image img{
+  transform:scale(1.045);
+}
+
+.article-body{
+  padding:20px;
+}
+
+.article-body .badge{
+  font-size:.67rem;
+  padding:5px 9px;
+}
+
+.article-body h3{
+  font-size:1.2rem;
+  line-height:1.22;
+  letter-spacing:-.025em;
+  margin:11px 0 8px;
+}
+
+.article-body p{
+  color:var(--muted);
+  font-size:.9rem;
+  margin-bottom:14px;
+}
+
+.article-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.read-more{
+  color:var(--primary-2);
+  font-size:.85rem;
+  font-weight:800;
+}
+
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.sidebar-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+}
+
+.sidebar-title{
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.popular-list{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.popular-item{
+  display:grid;
+  grid-template-columns:76px 1fr;
+  gap:12px;
+  align-items:start;
+}
+
+.popular-item img{
+  width:76px;
+  height:58px;
+  border-radius:9px;
+  object-fit:cover;
+}
+
+.popular-item h4{
+  font-size:.86rem;
+  line-height:1.3;
+}
+
+.popular-item span{
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.ad-box{
+  min-height:180px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:var(--muted);
+  border:1px dashed var(--border);
+  border-radius:15px;
+  background:var(--bg-soft);
+  font-size:.78rem;
+  letter-spacing:.04em;
+}
+
+.filter-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:25px;
+}
+
+.filter-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--muted);
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.82rem;
+  transition:var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  color:#fff;
+  background:var(--primary);
+  border-color:var(--primary);
+}
+
+.categories-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+}
+
+.category-card{
+  padding:22px 12px;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--surface);
+  transition:var(--transition);
+}
+
+.category-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(108,99,255,.4);
+}
+
+.category-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 10px;
+  border-radius:12px;
+  background:var(--surface-2);
+  font-size:1.15rem;
+}
+
+.category-card h3{
+  font-size:.8rem;
+}
+
+.newsletter{
+  padding:42px;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(39,215,232,.16),transparent 30%),
+    radial-gradient(circle at 10% 80%,rgba(108,99,255,.22),transparent 34%),
+    var(--surface);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+}
+
+.newsletter h2{
+  font-size:2rem;
+  letter-spacing:-.04em;
+}
+
+.newsletter p{
+  color:var(--muted);
+  max-width:590px;
+  margin-top:7px;
+}
+
+.newsletter-form{
+  min-width:min(100%,410px);
+  display:flex;
+  gap:8px;
+}
+
+.newsletter-form input,
+.search-input{
+  width:100%;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+  color:var(--text);
+  outline:none;
+  border-radius:11px;
+  padding:12px 14px;
+}
+
+.newsletter-form input:focus,
+.search-input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(108,99,255,.13);
+}
+
+.footer{
+  border-top:1px solid var(--border);
+  padding:55px 0 25px;
+  background:var(--surface);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr repeat(3,1fr);
+  gap:40px;
+}
+
+.footer-brand p{
+  color:var(--muted);
+  margin:15px 0;
+  max-width:360px;
+}
+
+.socials{
+  display:flex;
+  gap:8px;
+}
+
+.social{
+  width:37px;
+  height:37px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  transition:var(--transition);
+}
+
+.social:hover{
+  color:var(--text);
+  border-color:var(--primary);
+}
+
+.footer h3{
+  font-size:.9rem;
+  margin-bottom:15px;
+}
+
+.footer-links{
+  list-style:none;
+  display:grid;
+  gap:9px;
+}
+
+.footer-links a{
+  color:var(--muted);
+  font-size:.86rem;
+}
+
+.footer-links a:hover{color:var(--primary-2)}
+
+.copyright{
+  border-top:1px solid var(--border);
+  margin-top:40px;
+  padding-top:20px;
+  color:var(--muted);
+  font-size:.78rem;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.search-overlay{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(3,5,9,.72);
+  backdrop-filter:blur(12px);
+  display:none;
+  padding:10vh 20px;
+}
+
+.search-overlay.open{display:block}
+
+.search-panel{
+  width:min(760px,100%);
+  margin:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.search-head{
+  display:flex;
+  gap:10px;
+  padding:20px;
+  border-bottom:1px solid var(--border);
+}
+
+.search-results{
+  max-height:65vh;
+  overflow:auto;
+  padding:10px;
+}
+
+.search-result{
+  padding:15px;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  cursor:pointer;
+}
+
+.search-result:hover{background:var(--surface-2)}
+
+.search-result h3{
+  font-size:.95rem;
+}
+
+.search-result p{
+  color:var(--muted);
+  font-size:.8rem;
+  margin-top:3px;
+}
+
+.close-btn{
+  flex:0 0 auto;
+}
+
+.no-results{
+  text-align:center;
+  padding:35px 15px;
+  color:var(--muted);
+}
+
+.article-view{
+  display:none;
+  min-height:100vh;
+  padding:35px 0 80px;
+}
+
+.article-view.active{display:block}
+
+.home-view.hidden{display:none}
+
+.article-container{
+  width:min(860px,calc(100% - 32px));
+  margin:auto;
+}
+
+.breadcrumbs{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  color:var(--muted);
+  font-size:.8rem;
+  margin-bottom:22px;
+}
+
+.breadcrumbs button{
+  border:0;
+  background:none;
+  color:var(--primary-2);
+  padding:0;
+}
+
+.article-view h1{
+  font-size:clamp(2.1rem,5vw,4rem);
+  line-height:1.05;
+  letter-spacing:-.055em;
+  margin:15px 0;
+}
+
+.article-lead{
+  color:var(--muted);
+  font-size:1.08rem;
+  max-width:750px;
+}
+
+.article-cover{
+  margin:30px 0;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.article-cover img{
+  width:100%;
+  max-height:520px;
+  object-fit:cover;
+}
+
+.article-content{
+  font-size:1.03rem;
+}
+
+.article-content h2{
+  font-size:1.65rem;
+  letter-spacing:-.03em;
+  margin:36px 0 13px;
+}
+
+.article-content h3{
+  font-size:1.25rem;
+  margin:27px 0 10px;
+}
+
+.article-content p{
+  margin:0 0 18px;
+  color:color-mix(in srgb,var(--text) 88%,var(--muted));
+}
+
+.article-content ul,
+.article-content ol{
+  margin:0 0 20px 23px;
+}
+
+.article-content li{margin:8px 0}
+
+.article-content blockquote{
+  margin:25px 0;
+  padding:18px 20px;
+  border-left:4px solid var(--primary);
+  background:var(--surface);
+  border-radius:0 12px 12px 0;
+  color:var(--muted);
+}
+
+.code-wrap{
+  margin:24px 0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#080b11;
+}
+
+.code-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:9px 12px;
+  color:#aab4c3;
+  background:#111722;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:.75rem;
+}
+
+.copy-code{
+  border:1px solid rgba(255,255,255,.1);
+  background:#171e2a;
+  color:#d8deea;
+  padding:5px 9px;
+  border-radius:7px;
+  font-size:.72rem;
+}
+
+pre{
+  overflow:auto;
+  padding:18px;
+  color:#d9e2ef;
+  font-size:.84rem;
+  line-height:1.65;
+  tab-size:2;
+}
+
+.related{
+  margin-top:50px;
+  padding-top:30px;
+  border-top:1px solid var(--border);
+}
+
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:18px;
+}
+
+.share-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:24px 0;
+}
+
+.share-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:9px;
+  padding:8px 12px;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.share-btn:hover{
+  border-color:var(--primary);
+  color:var(--primary-2);
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  background:var(--surface-3);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:10px 15px;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:3000;
+  font-size:.83rem;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.back-top{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:42px;
+  height:42px;
+  display:none;
+  place-items:center;
+  border-radius:12px;
+  background:var(--primary);
+  color:#fff;
+  border:0;
+  z-index:900;
+}
+
+.back-top.show{display:grid}
+
+.hidden-card{display:none!important}
+
+.focusable:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+  outline:3px solid rgba(39,215,232,.55);
+  outline-offset:3px;
+}
+
+@media(max-width:1050px){
+  .nav-links{display:none}
+  .menu-btn{display:grid}
+  .trending-grid{grid-template-columns:repeat(2,1fr)}
+  .categories-grid{grid-template-columns:repeat(4,1fr)}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-side{grid-template-columns:1fr 1fr;grid-template-rows:none}
+}
+
+@media(max-width:850px){
+  .content-layout{grid-template-columns:1fr}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr}
+  .newsletter{flex-direction:column;align-items:flex-start}
+  .newsletter-form{width:100%;min-width:0}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:650px){
+  .section{padding:55px 0}
+  .topbar{display:none}
+  .hero{padding-top:25px}
+  .hero-main,.hero-content{min-height:470px}
+  .hero-content{padding:25px}
+  .hero h1{font-size:2.25rem}
+  .hero-side{grid-template-columns:1fr}
+  .hero-side-card{min-height:200px}
+  .trending-grid,
+  .articles-grid,
+  .related-grid,
+  .sidebar{
+    grid-template-columns:1fr;
+  }
+  .categories-grid{grid-template-columns:repeat(2,1fr)}
+  .newsletter{padding:28px 22px}
+  .newsletter h2{font-size:1.65rem}
+  .newsletter-form{flex-direction:column}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:25px}
+  .copyright{flex-direction:column}
+  .article-view h1{font-size:2.25rem}
+}
+
+@media(max-width:430px){
+  .container{width:min(var(--max),calc(100% - 22px))}
+  .logo span{font-size:1.05rem}
+  .hero-content{padding:21px}
+  .footer-grid{grid-template-columns:1fr}
+  .search-head{padding:13px}
+}
+
+
+#readingProgress{
+  position:fixed;
+  top:0;
+  left:0;
+  width:0;
+  height:3px;
+  z-index:4000;
+  background:linear-gradient(90deg,var(--primary),var(--cyan));
+  box-shadow:0 0 12px rgba(39,215,232,.35);
+  transition:width .08s linear;
+}
+.install-banner{
+  position:fixed;
+  left:16px;
+  right:16px;
+  bottom:16px;
+  z-index:2500;
+  width:min(520px,calc(100% - 32px));
+  margin:auto;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.install-banner.show{display:flex}
+.install-banner p{color:var(--muted);font-size:.82rem}
+.install-banner .btn{padding:8px 12px}
+@media(max-width:520px){.install-banner{align-items:flex-start;flex-direction:column}.install-banner .btn{width:100%}}
+
+</style>
+</head>
+
+<body>
+<div id="readingProgress" aria-hidden="true"></div>
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>BAKO Tech — Gaming, Technology, AI & Development</span>
+    <span><strong>Fresh guides.</strong> Useful technology.</span>
+  </div>
+</div>
+
+<header class="header">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="#home" class="logo" aria-label="BAKO Tech Home">
+      <span class="logo-mark">B</span>
+      <span>BAKO Tech</span>
+    </a>
+
+    <div class="nav-links" id="desktopNav">
+      <a href="#home" class="active">Home</a>
+      <a href="#gaming">Gaming</a>
+      <a href="#technology">Technology</a>
+      <a href="#ai">AI</a>
+      <a href="#android">Android</a>
+      <a href="#pc">PC</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#about">About</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark and light mode" title="Toggle theme">☾</button>
+      <button class="icon-btn" id="searchOpen" aria-label="Search articles" title="Search">⌕</button>
+      <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div id="mobileMenu" style="display:none;background:var(--surface);border-bottom:1px solid var(--border);position:fixed;top:72px;left:0;right:0;z-index:999;">
+  <nav class="container" style="padding:15px 0;display:grid;gap:4px;">
+    <a href="#home" class="mobile-link" style="padding:11px;border-radius:9px;">Home</a>
+    <a href="#gaming" class="mobile-link" style="padding:11px;border-radius:9px;">Gaming</a>
+    <a href="#technology" class="mobile-link" style="padding:11px;border-radius:9px;">Technology</a>
+    <a href="#ai" class="mobile-link" style="padding:11px;border-radius:9px;">AI</a>
+    <a href="#android" class="mobile-link" style="padding:11px;border-radius:9px;">Android</a>
+    <a href="#pc" class="mobile-link" style="padding:11px;border-radius:9px;">PC</a>
+    <a href="#tutorials" class="mobile-link" style="padding:11px;border-radius:9px;">Tutorials</a>
+    <a href="#about" class="mobile-link" style="padding:11px;border-radius:9px;">About</a>
+  </nav>
+</div>
+
+<main id="homeView" class="home-view">
+  <section class="hero">
+    <div class="container hero-grid" id="heroContainer"></div>
+  </section>
+
+  <section class="section" style="padding-top:35px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Trending Now</h2>
+          <p class="section-subtitle">Topics readers are exploring across gaming and technology.</p>
+        </div>
+      </div>
+      <div class="trending-grid" id="trendingGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="gaming">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Latest Articles</h2>
+          <p class="section-subtitle">Practical guides, explainers, news and useful ideas from the BAKO Tech editorial desk.</p>
+        </div>
+      </div>
+
+      <div class="filter-bar" aria-label="Article categories">
+        <button class="filter-btn active" data-category="All">All</button>
+        <button class="filter-btn" data-category="Gaming">Gaming</button>
+        <button class="filter-btn" data-category="Technology">Technology</button>
+        <button class="filter-btn" data-category="AI">AI</button>
+        <button class="filter-btn" data-category="Android">Android</button>
+        <button class="filter-btn" data-category="PC">PC</button>
+        <button class="filter-btn" data-category="Tutorials">Tutorials</button>
+      </div>
+
+      <div class="content-layout">
+        <div>
+          <div class="articles-grid" id="articlesGrid"></div>
+          <div class="no-results" id="filterEmpty" style="display:none;">
+            <h3>No articles found</h3>
+            <p>Try another category or browse all articles.</p>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-label="Sidebar">
+          <div class="sidebar-box">
+            <h3 class="sidebar-title">Popular Articles</h3>
+            <div class="popular-list" id="popularList"></div>
+          </div>
+
+          <div class="sidebar-box ad-box">
+            <!-- ADVERTISEMENT PLACEHOLDER -->
+            Advertisement Space
+          </div>
+
+          <div class="sidebar-box">
+            <h3 class="sidebar-title">Quick Topics</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              <button class="filter-btn" data-category="Gaming">Gaming</button>
+              <button class="filter-btn" data-category="AI">AI</button>
+              <button class="filter-btn" data-category="Android">Android</button>
+              <button class="filter-btn" data-category="PC">PC</button>
+              <button class="filter-btn" data-category="Tutorials">Coding</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Explore Categories</h2>
+          <p class="section-subtitle">Discover focused content built around the subjects that matter.</p>
+        </div>
+      </div>
+
+      <div class="categories-grid">
+        <button class="category-card" data-category="Gaming" id="gamingCategory">
+          <div class="category-icon">🎮</div>
+          <h3>Gaming</h3>
+        </button>
+        <button class="category-card" data-category="Technology">
+          <div class="category-icon">⚡</div>
+          <h3>Technology</h3>
+        </button>
+        <button class="category-card" data-category="AI" id="ai">
+          <div class="category-icon">✦</div>
+          <h3>AI</h3>
+        </button>
+        <button class="category-card" data-category="Android" id="android">
+          <div class="category-icon">▣</div>
+          <h3>Android</h3>
+        </button>
+        <button class="category-card" data-category="PC" id="pc">
+          <div class="category-icon">▰</div>
+          <h3>PC</h3>
+        </button>
+        <button class="category-card" data-category="Tutorials" id="tutorials">
+          <div class="category-icon">&lt;/&gt;</div>
+          <h3>Web Development</h3>
+        </button>
+        <button class="category-card" data-category="Tutorials">
+          <div class="category-icon">⌘</div>
+          <h3>Tutorials</h3>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="newsletter">
+        <div>
+          <span class="badge">BAKO Tech Newsletter</span>
+          <h2>Useful tech. No unnecessary noise.</h2>
+          <p>Get selected gaming guides, AI tools, technology updates and tutorials delivered to your inbox.</p>
+        </div>
+
+        <form class="newsletter-form" id="newsletterForm">
+          <label for="email" style="position:absolute;left:-9999px;">Email address</label>
+          <input id="email" type="email" placeholder="Your email address" required autocomplete="email">
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" style="padding-top:20px;">
+    <div class="container">
+      <div class="ad-box" style="min-height:100px;">
+        <!-- ADVERTISEMENT PLACEHOLDER -->
+        Advertisement Space
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="article-view" id="articleView">
+  <article class="article-container">
+    <div class="breadcrumbs" id="articleBreadcrumbs"></div>
+
+    <span class="badge" id="articleCategory"></span>
+    <h1 id="articleTitle"></h1>
+    <p class="article-lead" id="articleDescription"></p>
+
+    <div class="meta" style="margin-top:18px;">
+      <span id="articleAuthor"></span>
+      <span id="articleDate"></span>
+      <span id="articleReading"></span>
+    </div>
+
+    <div class="share-row">
+      <button class="share-btn" data-share="facebook">Facebook</button>
+      <button class="share-btn" data-share="x">X</button>
+      <button class="share-btn" data-share="whatsapp">WhatsApp</button>
+      <button class="share-btn" data-share="copy">Copy Link</button>
+    </div>
+
+    <div class="article-cover">
+      <img id="articleImage" src="" alt="">
+    </div>
+
+    <div class="ad-box" style="min-height:90px;margin:25px 0;">
+      <!-- ADVERTISEMENT PLACEHOLDER -->
+      Advertisement Space
+    </div>
+
+    <div class="article-content" id="articleContent"></div>
+
+    <div class="ad-box" style="min-height:90px;margin:35px 0;">
+      <!-- ADVERTISEMENT PLACEHOLDER -->
+      Advertisement Space
+    </div>
+
+    <div class="related">
+      <h2 class="section-title" style="font-size:1.6rem;">Related Articles</h2>
+      <div class="related-grid" id="relatedGrid"></div>
+    </div>
+
+    <div style="margin-top:35px;">
+      <button class="btn btn-secondary" id="backHome">← Back to Articles</button>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark">B</span>
+          <span>BAKO Tech</span>
+        </a>
+        <p>A modern independent-style publication focused on gaming, technology, AI, Android, PC and practical development knowledge.</p>
+        <div class="socials">
+          <a href="#" class="social" aria-label="Facebook">f</a>
+          <a href="#" class="social" aria-label="X">𝕏</a>
+          <a href="#" class="social" aria-label="YouTube">▶</a>
+          <a href="#" class="social" aria-label="Instagram">◎</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <ul class="footer-links">
+          <li><a href="#gaming">Gaming</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#ai">AI</a></li>
+          <li><a href="#android">Android</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Development</h3>
+        <ul class="footer-links">
+          <li><a href="#pc">PC Gaming</a></li>
+          <li><a href="#tutorials">HTML & CSS</a></li>
+          <li><a href="#tutorials">JavaScript</a></li>
+          <li><a href="#tutorials">Tech Tutorials</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Information</h3>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span>© <span id="year"></span> BAKO Tech. All rights reserved.</span>
+      <span>Built for readers who love technology · Fast · Responsive · Installable</span>
+    </div>
+  </div>
+</footer>
+
+<div class="install-banner" id="installBanner" role="status">
+  <div>
+    <strong>Install BAKO Tech</strong>
+    <p>Keep the blog one tap away on your device.</p>
+  </div>
+  <button class="btn btn-primary" id="installBtn" type="button">Install</button>
+</div>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search articles">
+  <div class="search-panel">
+    <div class="search-head">
+      <input class="search-input" id="searchInput" type="search" placeholder="Search gaming, AI, Android, tutorials..." autocomplete="off">
+      <button class="icon-btn close-btn" id="searchClose" aria-label="Close search">×</button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="no-results">Start typing to search BAKO Tech.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<script>
+"use strict";
+
+const images = {
+  gaming: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+  pc: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1000&q=80",
+  setup: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=1000&q=80",
+  android: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=1000&q=80",
+  ai: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=80",
+  code: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=80",
+  tech: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80",
+  mobile: "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=1000&q=80"
+};
+
+const articles = [
+  {
+    id:"lightweight-android-games",
+    category:"Android",
+    title:"Best Lightweight Android Games for Smooth Gaming",
+    description:"A practical guide to choosing enjoyable Android games that are friendly to storage, battery and everyday hardware.",
+    date:"2026-10-07",
+    author:"BAKO Tech Editorial",
+    reading:"6 min read",
+    image:images.android,
+    popular:96,
+    keywords:["android","mobile games","lightweight games","gaming"],
+    content:`
+      <p>Not every mobile gaming session needs a large download or demanding graphics pipeline. Lightweight games can be a great choice when storage, battery life or device performance are important.</p>
+      <h2>What makes a game lightweight?</h2>
+      <p>A lightweight game generally has a modest installation footprint and sensible hardware requirements. File size alone does not tell the whole story: background processes, graphics settings and online features can also affect the experience.</p>
+      <h2>What to look for</h2>
+      <ul>
+        <li>Adjustable graphics and frame-rate options.</li>
+        <li>Offline modes when you want to reduce network usage.</li>
+        <li>Clear storage requirements before installation.</li>
+        <li>Simple controls that work well on smaller screens.</li>
+      </ul>
+      <blockquote>A good mobile game should respect your device as much as it entertains you.</blockquote>
+      <h2>How to improve the experience</h2>
+      <p>Close applications you do not need, keep sufficient free storage available and use the game's performance settings instead of automatically choosing the highest visual preset.</p>
+    `
+  },
+  {
+    id:"free-pc-games",
+    category:"PC",
+    title:"How to Find Great Free PC Games Without the Guesswork",
+    description:"A practical method for discovering free-to-play and genuinely free PC experiences while avoiding misleading downloads.",
+    date:"2026-10-06",
+    author:"BAKO Tech Editorial",
+    reading:"7 min read",
+    image:images.pc,
+    popular:91,
+    keywords:["pc gaming","free games","computer games","gaming"],
+    content:`
+      <p>Free PC gaming covers many different models, from completely free projects to games supported by optional purchases. The best way to choose is to understand exactly what the download includes.</p>
+      <h2>Check the source first</h2>
+      <p>Prefer official game stores, the developer's official website or reputable open-source project pages. Avoid installers that bundle unrelated software or ask for unnecessary permissions.</p>
+      <h2>Compare the system requirements</h2>
+      <p>Before downloading, compare the minimum and recommended specifications with your computer. A game can be free and still require more graphics memory or processor performance than your system has available.</p>
+      <h2>Look beyond graphics</h2>
+      <ul>
+        <li>Gameplay loop and session length.</li>
+        <li>Controller and keyboard support.</li>
+        <li>Offline or online requirements.</li>
+        <li>Update frequency and community activity.</li>
+      </ul>
+      <p>A smaller game with excellent design can be much more enjoyable than a technically impressive title that does not match your preferences.</p>
+    `
+  },
+  {
+    id:"ai-tools-gamers",
+    category:"AI",
+    title:"Useful AI Tools for Gamers: What They Can Actually Do",
+    description:"Explore practical ways AI can help with game research, ideas, troubleshooting and content creation.",
+    date:"2026-10-05",
+    author:"BAKO Tech Editorial",
+    reading:"8 min read",
+    image:images.ai,
+    popular:88,
+    keywords:["ai","artificial intelligence","gamers","tools"],
+    content:`
+      <p>AI tools are becoming useful assistants for many gaming workflows. The key is to use them for tasks where they save time rather than expecting them to replace judgment or experience.</p>
+      <h2>Game research</h2>
+      <p>An AI assistant can help organize information about genres, mechanics, settings and strategies. Always verify important details against current official sources when accuracy matters.</p>
+      <h2>Build ideas and planning</h2>
+      <p>Players can use AI to brainstorm character builds, challenge ideas, video concepts or structured practice plans. Giving the tool clear constraints usually produces more useful results.</p>
+      <h2>Technical troubleshooting</h2>
+      <p>AI can help explain common PC errors and create a checklist for diagnosis. It should not be treated as a substitute for official documentation when changing sensitive system settings.</p>
+      <h2>Content creation</h2>
+      <p>Creators can use AI for outlines, title variations, editing checklists and first drafts. Human review remains important for accuracy, originality and voice.</p>
+    `
+  },
+  {
+    id:"pc-performance",
+    category:"PC",
+    title:"Simple PC Optimization Tips for Better Gaming Performance",
+    description:"A sensible checklist for improving gaming performance without blindly changing system settings.",
+    date:"2026-10-04",
+    author:"BAKO Tech Editorial",
+    reading:"6 min read",
+    image:images.setup,
+    popular:84,
+    keywords:["pc optimization","performance","fps","gaming pc"],
+    content:`
+      <p>Improving gaming performance does not always require new hardware. A clean software environment and sensible graphics settings can make a noticeable difference.</p>
+      <h2>Start with the basics</h2>
+      <ul>
+        <li>Keep graphics drivers and the operating system reasonably current.</li>
+        <li>Close applications that consume significant CPU, RAM or disk resources.</li>
+        <li>Maintain adequate free storage space.</li>
+        <li>Use the game's built-in performance metrics where available.</li>
+      </ul>
+      <h2>Adjust graphics intelligently</h2>
+      <p>If a game struggles, lower demanding options such as shadows, reflections or volumetric effects before sacrificing every visual setting. Test one change at a time so you know what helped.</p>
+      <h2>Watch temperatures</h2>
+      <p>Performance can decline when hardware becomes too hot. Good airflow, clean vents and appropriate fan operation are important parts of long-term PC maintenance.</p>
+    `
+  },
+  {
+    id:"html-css-beginner",
+    category:"Tutorials",
+    title:"HTML & CSS Beginner Guide: Build Your First Modern Card",
+    description:"Learn the basic structure behind a responsive article card using semantic HTML and modern CSS.",
+    date:"2026-10-03",
+    author:"BAKO Tech Editorial",
+    reading:"9 min read",
+    image:images.code,
+    popular:82,
+    keywords:["html","css","web development","coding","tutorial"],
+    content:`
+      <p>One of the best ways to learn front-end development is to build small components. In this example, we create a clean article card using semantic HTML and CSS.</p>
+      <h2>HTML structure</h2>
+      <div class="code-wrap">
+        <div class="code-head"><span>HTML</span><button class="copy-code">Copy Code</button></div>
+        <pre><code>&lt;article class="card"&gt;
+  &lt;img src="article.jpg" alt="Article image"&gt;
+  &lt;div class="card-content"&gt;
+    &lt;span&gt;Technology&lt;/span&gt;
+    &lt;h2&gt;Modern Web Design&lt;/h2&gt;
+    &lt;p&gt;A short article description.&lt;/p&gt;
+    &lt;a href="#"&gt;Read more&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+      </div>
+      <h2>CSS styling</h2>
+      <div class="code-wrap">
+        <div class="code-head"><span>CSS</span><button class="copy-code">Copy Code</button></div>
+        <pre><code>.card {
+  max-width: 420px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  background: white;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}</code></pre>
+      </div>
+      <h2>Why semantic HTML matters</h2>
+      <p>Using elements such as <code>article</code>, <code>header</code>, <code>main</code> and <code>nav</code> makes your structure easier for browsers, assistive technologies and search engines to understand.</p>
+    `
+  },
+  {
+    id:"javascript-tips",
+    category:"Tutorials",
+    title:"Practical JavaScript Tips for Cleaner Front-End Projects",
+    description:"Small JavaScript habits that can make browser-based projects easier to maintain and debug.",
+    date:"2026-10-02",
+    author:"BAKO Tech Editorial",
+    reading:"8 min read",
+    image:images.code,
+    popular:78,
+    keywords:["javascript","js","web development","coding"],
+    content:`
+      <p>Good JavaScript is not only about making features work. It should also be understandable, predictable and easy to maintain.</p>
+      <h2>Use clear variable names</h2>
+      <p>Names should explain what a value represents. A descriptive name can eliminate the need for comments explaining obvious code.</p>
+      <h2>Keep functions focused</h2>
+      <p>A function that performs one clear task is easier to test and reuse. When a function starts handling unrelated responsibilities, consider separating them.</p>
+      <h2>Use event delegation when appropriate</h2>
+      <div class="code-wrap">
+        <div class="code-head"><span>JavaScript</span><button class="copy-code">Copy Code</button></div>
+        <pre><code>document.addEventListener("click", event => {
+  const button = event.target.closest("[data-action]");
+  if (!button) return;
+
+  const action = button.dataset.action;
+  console.log("Action:", action);
+});</code></pre>
+      </div>
+      <h2>Handle empty states</h2>
+      <p>Interfaces should explain what happened when a search or filter produces no results. Empty states are part of the user experience, not an afterthought.</p>
+    `
+  },
+  {
+    id:"android-apps",
+    category:"Android",
+    title:"How to Choose Better Android Apps Without Overloading Your Phone",
+    description:"A simple checklist for evaluating apps, permissions, storage usage and update quality.",
+    date:"2026-10-01",
+    author:"BAKO Tech Editorial",
+    reading:"5 min read",
+    image:images.mobile,
+    popular:73,
+    keywords:["android","apps","mobile","privacy"],
+    content:`
+      <p>Installing fewer, better apps can make a phone easier to manage. Instead of focusing only on ratings, consider the app's purpose, permissions and update history.</p>
+      <h2>Review permissions</h2>
+      <p>Ask whether each permission is relevant to the app's core function. A flashlight application, for example, should not need broad access to unrelated personal information.</p>
+      <h2>Check storage and background activity</h2>
+      <p>Large caches and background activity can consume resources over time. Android's settings provide tools for reviewing storage and battery usage.</p>
+      <h2>Keep your apps maintained</h2>
+      <p>Use trusted distribution channels and keep important applications updated. Remove apps you no longer use to reduce clutter.</p>
+    `
+  },
+  {
+    id:"latest-ai-trends",
+    category:"Technology",
+    title:"AI Trends Worth Watching in Modern Consumer Technology",
+    description:"A practical overview of major AI directions shaping software, devices and everyday digital tools.",
+    date:"2026-09-30",
+    author:"BAKO Tech Editorial",
+    reading:"7 min read",
+    image:images.tech,
+    popular:69,
+    keywords:["ai","technology","artificial intelligence","trends"],
+    content:`
+      <p>Artificial intelligence is increasingly becoming part of ordinary software rather than a separate destination. The most useful developments are often the ones that quietly improve existing workflows.</p>
+      <h2>AI inside everyday applications</h2>
+      <p>Writing tools, search interfaces, creative software and productivity applications increasingly include AI-assisted features directly in their normal workflows.</p>
+      <h2>On-device processing</h2>
+      <p>Some AI tasks can run locally on capable hardware. This can reduce network dependency and may offer privacy or latency advantages depending on the implementation.</p>
+      <h2>Smarter interfaces</h2>
+      <p>Natural-language interfaces are becoming another way to interact with software. Good design still requires clear controls, understandable feedback and ways to correct mistakes.</p>
+    `
+  },
+  {
+    id:"gaming-tech",
+    category:"Gaming",
+    title:"How New Technology Is Changing the Gaming Experience",
+    description:"From faster displays to smarter software features, modern technology continues to reshape how games are played.",
+    date:"2026-09-29",
+    author:"BAKO Tech Editorial",
+    reading:"6 min read",
+    image:images.gaming,
+    popular:64,
+    keywords:["gaming","technology","hardware","games"],
+    content:`
+      <p>Gaming technology is not defined by one component. Display technology, storage, input devices, networking and software all influence the experience.</p>
+      <h2>Faster feedback</h2>
+      <p>Higher refresh-rate displays and responsive input systems can make games feel more immediate, especially in genres where timing matters.</p>
+      <h2>Better storage</h2>
+      <p>Modern solid-state storage can reduce loading times compared with older storage technologies. The actual improvement depends on the game and the rest of the system.</p>
+      <h2>Smarter software</h2>
+      <p>Game engines and operating systems continue to improve how resources are managed. Developers can use these capabilities to create richer worlds while targeting a wider range of hardware.</p>
+    `
+  }
+];
+
+const heroArticle = articles.find(a => a.id === "gaming-tech");
+const heroSecondary = articles.find(a => a.id === "ai-tools-gamers");
+const heroThird = articles.find(a => a.id === "pc-performance");
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+
+function formatDate(dateString){
+  return new Intl.DateTimeFormat("en",{
+    year:"numeric",
+    month:"short",
+    day:"numeric"
+  }).format(new Date(dateString + "T12:00:00"));
+}
+
+function escapeHTML(value){
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function renderHero(){
+  $("#heroContainer").innerHTML = `
+    <div class="hero-main">
+      <img src="${heroArticle.image}" alt="Gaming technology setup" fetchpriority="high">
+      <div class="hero-content">
+        <span class="badge">${heroArticle.category}</span>
+        <h1>${heroArticle.title}</h1>
+        <p>${heroArticle.description}</p>
+        <div class="meta">
+          <span>◷ ${formatDate(heroArticle.date)}</span>
+          <span>•</span>
+          <span>${heroArticle.reading}</span>
+        </div>
+        <button class="btn btn-primary read-article" data-id="${heroArticle.id}" style="width:max-content;">
+          Read Article →
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-side-card">
+        <img src="${heroSecondary.image}" alt="Artificial intelligence concept" loading="lazy">
+        <div class="hero-side-content">
+          <span class="badge">${heroSecondary.category}</span>
+          <h3>${heroSecondary.title}</h3>
+          <button class="read-more read-article" data-id="${heroSecondary.id}" style="margin-top:7px;background:none;border:0;padding:0;">Read More →</button>
+        </div>
+      </div>
+
+      <div class="hero-side-card">
+        <img src="${heroThird.image}" alt="Modern gaming PC" loading="lazy">
+        <div class="hero-side-content">
+          <span class="badge">${heroThird.category}</span>
+          <h3>${heroThird.title}</h3>
+          <button class="read-more read-article" data-id="${heroThird.id}" style="margin-top:7px;background:none;border:0;padding:0;">Read More →</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTrending(){
+  const trending = [...articles]
+    .sort((a,b)=>b.popular-a.popular)
+    .slice(0,4);
+
+  $("#trendingGrid").innerHTML = trending.map((article,index)=>`
+    <button class="trend-card read-article" data-id="${article.id}" style="text-align:left;">
+      <span class="trend-number">0${index+1}</span>
+      <span>
+        <h3>${article.title}</h3>
+        <small>${article.category} · ${article.reading}</small>
+      </span>
+    </button>
+  `).join("");
+}
+
+function renderArticles(list=articles){
+  const grid = $("#articlesGrid");
+
+  if(!list.length){
+    grid.innerHTML = "";
+    $("#filterEmpty").style.display = "block";
+    return;
+  }
+
+  $("#filterEmpty").style.display = "none";
+
+  grid.innerHTML = list.map(article=>`
+    <article class="article-card">
+      <div class="article-image">
+        <img src="${article.image}" alt="${escapeHTML(article.title)}" loading="lazy">
+      </div>
+      <div class="article-body">
+        <span class="badge">${article.category}</span>
+        <h3>${article.title}</h3>
+        <p>${article.description}</p>
+        <div class="meta">
+          <span>${formatDate(article.date)}</span>
+          <span>·</span>
+          <span>${article.reading}</span>
+        </div>
+        <div class="article-footer" style="margin-top:14px;">
+          <button class="read-more read-article" data-id="${article.id}" style="border:0;background:none;padding:0;">Read More →</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderPopular(){
+  const popular = [...articles].sort((a,b)=>b.popular-a.popular).slice(0,5);
+
+  $("#popularList").innerHTML = popular.map(article=>`
+    <button class="popular-item read-article" data-id="${article.id}" style="background:none;border:0;color:inherit;text-align:left;">
+      <img src="${article.image}" alt="" loading="lazy">
+      <span>
+        <h4>${article.title}</h4>
+        <span>${article.category} · ${article.reading}</span>
+      </span>
+    </button>
+  `).join("");
+}
+
+function updateSchema(article){
+  const old = document.querySelector("#articleSchema");
+  if(old) old.remove();
+
+  const schema = document.createElement("script");
+  schema.type = "application/ld+json";
+  schema.id = "articleSchema";
+  schema.textContent = JSON.stringify({
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":article.title,
+    "description":article.description,
+    "image":[article.image],
+    "datePublished":article.date,
+    "author":{
+      "@type":"Organization",
+      "name":"BAKO Tech"
+    },
+    "publisher":{
+      "@type":"Organization",
+      "name":"BAKO Tech"
+    },
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":location.href
+    }
+  });
+  document.head.appendChild(schema);
+}
+
+function updateBreadcrumbs(article){
+  $("#articleBreadcrumbs").innerHTML = `
+    <button id="articleHomeLink">Home</button>
+    <span>›</span>
+    <span>${escapeHTML(article.category)}</span>
+    <span>›</span>
+    <span>${escapeHTML(article.title)}</span>
+  `;
+
+  $("#articleHomeLink").addEventListener("click",goHome);
+}
+
+function openArticle(id, push=true){
+  const article = articles.find(item=>item.id===id);
+  if(!article) return;
+
+  $("#articleCategory").textContent = article.category;
+  $("#articleTitle").textContent = article.title;
+  $("#articleDescription").textContent = article.description;
+  $("#articleAuthor").textContent = "✦ " + article.author;
+  $("#articleDate").textContent = "◷ " + formatDate(article.date);
+  $("#articleReading").textContent = "⌁ " + article.reading;
+  $("#articleImage").src = article.image;
+  $("#articleImage").alt = article.title;
+  $("#articleContent").innerHTML = article.content;
+
+  updateBreadcrumbs(article);
+  updateSchema(article);
+
+  const related = articles
+    .filter(item=>item.id!==article.id)
+    .filter(item=>item.category===article.category || item.keywords.some(k=>article.keywords.includes(k)))
+    .slice(0,4);
+
+  $("#relatedGrid").innerHTML = related.map(item=>`
+    <article class="article-card">
+      <div class="article-image">
+        <img src="${item.image}" alt="${escapeHTML(item.title)}" loading="lazy">
+      </div>
+      <div class="article-body">
+        <span class="badge">${item.category}</span>
+        <h3>${item.title}</h3>
+        <button class="read-more read-article" data-id="${item.id}" style="border:0;background:none;padding:0;">Read More →</button>
+      </div>
+    </article>
+  `).join("");
+
+  $("#homeView").classList.add("hidden");
+  $("#articleView").classList.add("active");
+
+  if(push){
+    history.pushState({article:id},"",`#article/${encodeURIComponent(id)}`);
+  }
+
+  window.scrollTo({top:0,behavior:"smooth"});
+  document.title = `${article.title} — BAKO Tech`;
+}
+
+function goHome(push=true){
+  $("#articleView").classList.remove("active");
+  $("#homeView").classList.remove("hidden");
+
+  if(push){
+    history.pushState({home:true},"","#home");
+  }
+
+  document.title = "BAKO Tech — Gaming, Technology, AI & Tutorials";
+  const schema = $("#articleSchema");
+  if(schema) schema.remove();
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function filterCategory(category){
+  const buttons = $$(".filter-btn");
+  buttons.forEach(btn=>{
+    if(btn.dataset.category){
+      btn.classList.toggle("active",btn.dataset.category===category);
+    }
+  });
+
+  const result = category==="All"
+    ? articles
+    : articles.filter(article=>article.category===category);
+
+  renderArticles(result);
+
+  if(category!=="All"){
+    const section = $("#gaming");
+    section.scrollIntoView({behavior:"smooth"});
+  }
+}
+
+function searchArticles(query){
+  const q = query.trim().toLowerCase();
+  const resultsBox = $("#searchResults");
+
+  if(!q){
+    resultsBox.innerHTML = `<div class="no-results">Start typing to search BAKO Tech.</div>`;
+    return;
+  }
+
+  const matches = articles.filter(article=>{
+    const haystack = [
+      article.title,
+      article.category,
+      article.description,
+      ...article.keywords
+    ].join(" ").toLowerCase();
+
+    return haystack.includes(q);
+  });
+
+  if(!matches.length){
+    resultsBox.innerHTML = `
+      <div class="no-results">
+        <h3>No results found</h3>
+        <p>Try searching for gaming, AI, Android, PC or JavaScript.</p>
+      </div>
+    `;
+    return;
+  }
+
+  resultsBox.innerHTML = matches.map(article=>`
+    <button class="search-result read-article" data-id="${article.id}" style="width:100%;border:0;background:none;color:inherit;text-align:left;">
+      <div>
+        <h3>${article.title}</h3>
+        <p>${article.category} · ${article.description}</p>
+      </div>
+      <span style="color:var(--primary-2);">→</span>
+    </button>
+  `).join("");
+}
+
+function showToast(message){
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>toast.classList.remove("show"),2500);
+}
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("Copied to clipboard.");
+  }catch{
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    showToast("Copied to clipboard.");
+  }
+}
+
+function shareArticle(type){
+  const id = decodeURIComponent(location.hash.replace("#article/",""));
+  const article = articles.find(item=>item.id===id);
+  if(!article) return;
+
+  const url = location.href;
+  const text = `${article.title} — BAKO Tech`;
+
+  if(type==="copy"){
+    copyText(url);
+    return;
+  }
+
+  let target = "";
+
+  if(type==="facebook"){
+    target = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  }
+
+  if(type==="x"){
+    target = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  }
+
+  if(type==="whatsapp"){
+    target = `https://wa.me/?text=${encodeURIComponent(text + " " + url)}`;
+  }
+
+  if(target){
+    window.open(target,"_blank","noopener,noreferrer,width=700,height=600");
+  }
+}
+
+function setupEvents(){
+  document.addEventListener("click",event=>{
+    const articleButton = event.target.closest(".read-article");
+    if(articleButton){
+      event.preventDefault();
+      const id = articleButton.dataset.id;
+      if(id) openArticle(id);
+      return;
+    }
+
+    const categoryButton = event.target.closest("[data-category]");
+    if(categoryButton && !categoryButton.classList.contains("read-article")){
+      filterCategory(categoryButton.dataset.category);
+      return;
+    }
+
+    const shareButton = event.target.closest("[data-share]");
+    if(shareButton){
+      shareArticle(shareButton.dataset.share);
+      return;
+    }
+
+    const copyCode = event.target.closest(".copy-code");
+    if(copyCode){
+      const code = copyCode.closest(".code-wrap").querySelector("code").innerText;
+      copyText(code);
+    }
+  });
+
+  $("#searchOpen").addEventListener("click",()=>{
+    $("#searchOverlay").classList.add("open");
+    $("#searchInput").value="";
+    searchArticles("");
+    setTimeout(()=>$("#searchInput").focus(),50);
+  });
+
+  $("#searchClose").addEventListener("click",()=>{
+    $("#searchOverlay").classList.remove("open");
+  });
+
+  $("#searchOverlay").addEventListener("click",event=>{
+    if(event.target === $("#searchOverlay")){
+      $("#searchOverlay").classList.remove("open");
+    }
+  });
+
+  $("#searchInput").addEventListener("input",event=>{
+    searchArticles(event.target.value);
+  });
+
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"){
+      $("#searchOverlay").classList.remove("open");
+      closeMobileMenu();
+    }
+
+    if((event.ctrlKey || event.metaKey) && event.key.toLowerCase()==="k"){
+      event.preventDefault();
+      $("#searchOpen").click();
+    }
+  });
+
+  $("#backHome").addEventListener("click",goHome);
+
+  $("#newsletterForm").addEventListener("submit",event=>{
+    event.preventDefault();
+
+    const email = $("#email").value.trim();
+
+    if(!email) return;
+
+    showToast("Thanks! Your newsletter preference has been saved locally.");
+    localStorage.setItem("bakoNewsletterEmail",email);
+    event.target.reset();
+  });
+
+  $("#themeToggle").addEventListener("click",toggleTheme);
+
+  $("#menuToggle").addEventListener("click",()=>{
+    const menu = $("#mobileMenu");
+    const isOpen = menu.style.display==="block";
+
+    if(isOpen){
+      closeMobileMenu();
+    }else{
+      menu.style.display="block";
+      $("#menuToggle").setAttribute("aria-expanded","true");
+      document.body.classList.add("no-scroll");
+    }
+  });
+
+  $$(".mobile-link").forEach(link=>{
+    link.addEventListener("click",()=>{
+      closeMobileMenu();
+    });
+  });
+
+  $("#backTop").addEventListener("click",()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  window.addEventListener("scroll",()=>{
+    $("#backTop").classList.toggle("show",window.scrollY>500);
+  });
+
+  window.addEventListener("popstate",()=>{
+    handleHash(false);
+  });
+
+  window.addEventListener("hashchange",()=>{
+    handleHash(false);
+  });
+}
+
+function closeMobileMenu(){
+  $("#mobileMenu").style.display="none";
+  $("#menuToggle").setAttribute("aria-expanded","false");
+  document.body.classList.remove("no-scroll");
+}
+
+function toggleTheme(){
+  const current = document.documentElement.dataset.theme || "dark";
+  const next = current==="dark" ? "light" : "dark";
+
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("bakoTheme",next);
+  $("#themeToggle").textContent = next==="dark" ? "☾" : "☀";
+  $("#themeToggle").setAttribute("aria-label",`Switch to ${next==="dark" ? "light" : "dark"} mode`);
+}
+
+function loadTheme(){
+  const saved = localStorage.getItem("bakoTheme");
+
+  let theme = saved;
+
+  if(!theme){
+    theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+
+  document.documentElement.dataset.theme=theme;
+  $("#themeToggle").textContent = theme==="dark" ? "☾" : "☀";
+}
+
+function handleHash(push=false){
+  const hash = location.hash;
+
+  if(hash.startsWith("#article/")){
+    const id = decodeURIComponent(hash.substring("#article/".length));
+    openArticle(id,false);
+  }else{
+    goHome(false);
+  }
+}
+
+function addBreadcrumbSchema(){
+  const existing = document.querySelector("#breadcrumbSchema");
+  if(existing) existing.remove();
+
+  const script = document.createElement("script");
+  script.id="breadcrumbSchema";
+  script.type="application/ld+json";
+  script.textContent=JSON.stringify({
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Home",
+        "item":"https://example.com/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Articles",
+        "item":"https://example.com/#gaming"
+      }
+    ]
+  });
+
+  document.head.appendChild(script);
+}
+
+
+let deferredInstallPrompt = null;
+
+function setupProgressBar(){
+  const bar = $("#readingProgress");
+  const update = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    bar.style.width = progress + "%";
+  };
+  window.addEventListener("scroll", update, {passive:true});
+  window.addEventListener("resize", update);
+  update();
+}
+
+function setupPWA(){
+  if("serviceWorker" in navigator){
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    $("#installBanner").classList.add("show");
+  });
+
+  $("#installBtn").addEventListener("click", async () => {
+    if(!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    $("#installBanner").classList.remove("show");
+  });
+
+  window.addEventListener("appinstalled", () => {
+    $("#installBanner").classList.remove("show");
+    showToast("BAKO Tech installed.");
+  });
+}
+
+function init(){
+  $("#year").textContent=new Date().getFullYear();
+
+  renderHero();
+  renderTrending();
+  renderArticles();
+  renderPopular();
+  addBreadcrumbSchema();
+  loadTheme();
+  setupEvents();
+  setupProgressBar();
+  setupPWA();
+  handleHash(false);
+}
+
+init();
+</script>
+
+</body>
+</html>
